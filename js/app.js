@@ -12,7 +12,7 @@ let storeOne = {
     setCustomer: function(){
         this.customer = avgcustomerHourly(23, 65) + ' Customers per hour';
     }
-}
+};
 
 function avgcustomerHourly(minCustomer, maxCustomer){
     return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
@@ -37,8 +37,9 @@ function avgcustomerHourly(minCustomer, maxCustomer){
 
 
 
+// for(let i = 0; i < storeOne.hours.length; i++){
+//     }
 
-
-
+storeOne.setCustomer();
 
 
