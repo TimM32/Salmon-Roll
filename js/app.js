@@ -13,16 +13,16 @@ let storeOne = {
   averageCookies: 6.3,
   avgCustomer: 0,
   cookiesPerHour: [],
-  setCookies: function(){
-    for(let i = 0; i < hours.length; i++){
+  setCookies: function () {
+    for (let i = 0; i < hours.length; i++) {
       this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer));
     }
 
-  },
+  }
 
 };
 
-function avgcustomerHourly(minCustomer, maxCustomer){
+function avgcustomerHourly(minCustomer, maxCustomer) {
   console.log('🚀 ~ file: app.js:19 ~ avgcustomerHourly ~ avgcustomerHourly:', avgcustomerHourly);
   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
@@ -35,12 +35,12 @@ let storeTwo = {
   averageCookies: 1.2,
   avgCustomer: 0,
   cookiesPerHour: [],
-  setCookies: function(){
-    for(let i = 0; i < hours.length; i++){
+  setCookies: function () {
+    for (let i = 0; i < hours.length; i++) {
       this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer));
     }
 
-  },
+  }
 
 };
 
@@ -53,12 +53,12 @@ let storeThree = {
   averageCookies: 3.7,
   avgCustomer: 0,
   cookiesPerHour: [],
-  setCookies: function(){
-    for(let i = 0; i < hours.length; i++){
+  setCookies: function () {
+    for (let i = 0; i < hours.length; i++) {
       this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer));
     }
 
-  },
+  }
 
 };
 
@@ -71,12 +71,12 @@ let storeFour = {
   averageCookies: 2.3,
   avgCustomer: 0,
   cookiesPerHour: [],
-  setCookies: function(){
-    for(let i = 0; i < hours.length; i++){
+  setCookies: function () {
+    for (let i = 0; i < hours.length; i++) {
       this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer));
     }
 
-  },
+  }
 
 };
 
@@ -89,12 +89,12 @@ let storeFive = {
   averageCookies: 4.6,
   avgCustomer: 0,
   cookiesPerHour: [],
-  etCookies: function(){
-    for(let i = 0; i < hours.length; i++){
+  etCookies: function () {
+    for (let i = 0; i < hours.length; i++) {
       this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer));
     }
 
-  },
+  }
 
 };
 
@@ -129,8 +129,9 @@ article.appendChild(storePara);
 let storeUl = document.createElement('ul');
 article.appendChild(storeUl);
 
-// let storeImage = document.createElement('img');
-// storeImage.setAttribute('src', 'images/' + store.)
+let storeImage = document.createElement('img');
+storeImage.setAttribute('src', 'images/' + storeImage.SalmonFish + '.PNG');
+article.appendChild(storeImage);
 
 
 storeOne.setCookies();
