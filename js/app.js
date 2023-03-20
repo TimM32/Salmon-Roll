@@ -10,9 +10,10 @@ let storeOne = {
   hourlyTotal: [],
   minCustomer: 23,
   maxCustomer: 65,
-  busHours: [hours],
   setCustomer: function(){
-    this.customer = avgcustomerHourly(23, 65) + ' Customers per hour';
+    for(let i = 0; i < hours.length; i++){
+      this.customer = avgcustomerHourly(23, 65) + ' Customers per hour';
+    }
   }
 };
 
