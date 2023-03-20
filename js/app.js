@@ -1,28 +1,38 @@
 'use strict'
 console.log('js connected')
 
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 
 let storeOne = {
-    storeName: 'Seattle'
-    hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']
-    hourlyTotal: []
+    storeName: 'Seattle',
+    hourlyTotal: [],
+    minCustomer: 23,
+    maxCustomer: 65,
+    setCustomer: function(){
+        this.customer = avgcustomerHourly(23, 65) + ' Customers per hour';
+    }
 }
 
-let storeTwo = {
-    storeName: 'Toyko'
+function avgcustomerHourly(minCustomer, maxCustomer){
+    return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
 
-let storeThree = {
-    storeName: 'Dubai'
-}
+// let storeTwo = {
+//     storeName: 'Toyko'
+// }
 
-let storeFour = {
-    storeName: 'Paris'
-}
+// let storeThree = {
+//     storeName: 'Dubai'
+// }
 
-let storeFive = {
-    storeName: 'Lima'
-}
+// let storeFour = {
+//     storeName: 'Paris'
+// }
+
+// let storeFive = {
+//     storeName: 'Lima'
+// }
 
 
 
