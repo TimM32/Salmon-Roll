@@ -15,3 +15,12 @@ h1 {
 
 }
 
+thead {
+    font-size: 40px;
+}
+
+td, th {
+    border: 2px solid;
+    text-align: left;
+    padding: 8px;
+}
