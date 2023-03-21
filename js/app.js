@@ -21,7 +21,17 @@ let hours = [
   '7pm',
   '8pm'
 ];
-// console.log('🚀 ~ file: app.js:5 ~ hours:', hours);
+
+function Store(storeName,minCustomer,maxCustomer,averageCookies,totalDailyCookies){
+  this.storeName = storeName;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.averageCookies = averageCookies;
+  this.totalDailyCookies = totalDailyCookies;
+}
+
+
+
 
 let storeOne = {
   storeName: 'Seattle',
@@ -233,18 +243,21 @@ let storeFive = {
 let cookkieTable = document.getElementById('cookiesSold-table');
 console.log('🚀 ~ file: app.js:253 ~ cookkieTable:', cookkieTable);
 
-let headRow = document.createElement('tr');
+let storeRow = document.createElement('tr');
 
 let headNameCell =document.createElement('th');
-headNameCell.textContent = 
-headRow.appendChild(headNameCell);
+headNameCell.textContent =
+storeRow.appendChild(headNameCell);
+
+// let nameCell = document.createElement('td');
+// nameCell.textContent =
+// headRow.appendChild.
 
 
 
 
 
-
-cookkieTable.appendChild(headRow);
+cookkieTable.appendChild(storeRow);
 
 
 
