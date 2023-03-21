@@ -12,6 +12,7 @@ let storeOne = {
   maxCustomer: 65,
   averageCookies: 6.3,
   // avgCustomer: 0,
+  totalDailyCookies: 0,
   cookiesPerHour: [],
   setCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -99,7 +100,7 @@ let storeFive = {
 };
 
 
-
+storeOne.setCookies();
 
 
 // for(let i = 0; i < storeOne.hours.length; i++){
@@ -127,27 +128,38 @@ storePara.textContent = 'Cookies be delicious!';
 article.appendChild(storePara);
 
 let storeUl = document.createElement('ul');
-for(let i = 0; i < hours.length; i++){
+for (let i = 0; i < hours.length; i++) {
 
   let storeLi = document.createElement('li');
-  console.log(storeOne.cookiesPerHour[i]);
+
+
+
+  storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
+
+  console.log(storeOne.totalDailyCookies);
+
   storeLi.textContent = storeOne.cookiesPerHour[i];
-  
+
+  storeUl.appendChild(storeLi);
+
 }
 
 article.appendChild(storeUl);
 
-// let storeImage = document.createElement('img');
-// storeImage.setAttribute('src', 'images/' + storeImage.SalmonFish + '.PNG');
-// {/* <img src="images/SalmonFish.PNG"></img>; */}
-// article.appendChild(storeImage);
+
+const listItem = document.createElement('li');
+listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies!';
+console.log(listItem);
+article.appendChild(listItem);
 
 
 
-storeOne.setCookies();
-storeTwo.setCookies();
-storeThree.setCookies();
-storeFour.setCookies();
-storeFive.setCookies();
+
+
+
+// storeTwo.setCookies();
+// storeThree.setCookies();
+// storeFour.setCookies();
+// storeFive.setCookies();
 
 
