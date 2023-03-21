@@ -1,7 +1,7 @@
 'use strict';
 console.log('js connected');
 
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 console.log('🚀 ~ file: app.js:5 ~ hours:', hours);
 
 
@@ -11,7 +11,7 @@ let storeOne = {
   minCustomer: 23,
   maxCustomer: 65,
   averageCookies: 6.3,
-  avgCustomer: 0,
+  // avgCustomer: 0,
   cookiesPerHour: [],
   setCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -33,7 +33,7 @@ let storeTwo = {
   minCustomer: 3,
   maxCustomer: 24,
   averageCookies: 1.2,
-  avgCustomer: 0,
+  // avgCustomer: 0,
   cookiesPerHour: [],
   setCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -51,7 +51,7 @@ let storeThree = {
   minCustomer: 11,
   maxCustomer: 38,
   averageCookies: 3.7,
-  avgCustomer: 0,
+  // avgCustomer: 0,
   cookiesPerHour: [],
   setCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -69,7 +69,7 @@ let storeFour = {
   minCustomer: 20,
   maxCustomer: 38,
   averageCookies: 2.3,
-  avgCustomer: 0,
+  // avgCustomer: 0,
   cookiesPerHour: [],
   setCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -87,7 +87,7 @@ let storeFive = {
   minCustomer: 2,
   maxCustomer: 16,
   averageCookies: 4.6,
-  avgCustomer: 0,
+  // avgCustomer: 0,
   cookiesPerHour: [],
   etCookies: function () {
     for (let i = 0; i < hours.length; i++) {
