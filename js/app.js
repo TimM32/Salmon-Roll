@@ -27,6 +27,7 @@ let storeOne = {
   maxCustomer: 65,
   averageCookies: 6.3,
   // avgCustomer: 0,
+  totalDailyCookies: 0,
   cookiesPerHour: [],
   //because this function has an 'object' that it belongs to, it is referred to as a method.
   setCookies: function () {
@@ -130,13 +131,10 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
 //   },
 // };
 
-// for(let i = 0; i < storeOne.hours.length; i++){
-//   let storeLi = document.createElement('li');
-//   storeLi.textContent = storeOne.busHours[i];
-// }
 
 
 
+storeOne.setCookies();
 
 
 
@@ -147,19 +145,39 @@ let parentElement = document.getElementById('cityProfiles');
 let article = document.createElement('article');
 parentElement.appendChild(article);
 
-let h2 = document.createElement('h2');
-article.appendChild(h2);
+// let h2 = document.createElement('h2');
+// article.appendChild(h2);
 
 let storePara = document.createElement('p');
 storePara.textContent = 'Cookies be delicious!';
 article.appendChild(storePara);
 
 let storeUl = document.createElement('ul');
+
+for(let i = 0; i < hours.length; i++){
+
+  let storeLi = document.createElement('li');
+
+  //add totals
+  storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
+
+
+  //add numbers to the li
+  storeLi.textContent = storeOne.cookiesPerHour[i];
+  //appending to html
+  storeUl.appendChild(storeLi);
+}
+
+
 article.appendChild(storeUl);
 
 
+console.log(storeOne.totalDailyCookies);
 
-storeOne.setCookies();
+const listItem = document.createElement('li');
+listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies';
+console.log(listItem);
+article.appendChild(listItem);
 // storeTwo.setCookies();
 // storeThree.setCookies();
 // storeFour.setCookies();
