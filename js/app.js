@@ -114,7 +114,7 @@ let storeTwo = {
 //   minCustomer: 11,
 //   maxCustomer: 38,
 //   averageCookies: 3.7,
-//   // avgCustomer: 0,
+//   totalDailyCookies: 0,
 //   cookiesPerHour: [],
 //   setCookies: function () {
 //     for (let i = 0; i < hours.length; i++) {
@@ -135,7 +135,7 @@ let storeTwo = {
 //   minCustomer: 20,
 //   maxCustomer: 38,
 //   averageCookies: 2.3,
-//   // avgCustomer: 0,
+//   totalDailyCookies: 0,
 //   cookiesPerHour: [],
 //   setCookies: function () {
 //     for (let i = 0; i < hours.length; i++) {
@@ -156,7 +156,7 @@ let storeTwo = {
 //   minCustomer: 2,
 //   maxCustomer: 16,
 //   averageCookies: 4.6,
-//   // avgCustomer: 0,
+//   totalDailyCookies: 0,
 //   cookiesPerHour: [],
 //   etCookies: function () {
 //     for (let i = 0; i < hours.length; i++) {
@@ -181,6 +181,11 @@ storeOne.renderStoreData();
 storeTwo.setCookies();
 storeTwo.renderStoreData();
 
-// storeThree.setCookies();
-// storeFour.setCookies();
-// storeFive.setCookies();
+// // storeThree.setCookies();
+// storeThree.renderStoreData();
+
+// // storeFour.setCookies();
+// storeFour.renderStoreData();
+
+// // storeFive.setCookies();
+// storeFive.renderStoreData();
