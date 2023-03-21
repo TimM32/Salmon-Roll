@@ -29,7 +29,7 @@ let storeOne = {
   minCustomer: 23,
   maxCustomer: 65,
   averageCookies: 6.3,
-  // avgCustomer: 0,
+  totalDailyCookies:  0,
   cookiesPerHour: [],
   //because this function has an 'object' that it belongs to, it is referred to as a method.
   setCookies: function () {
@@ -74,7 +74,7 @@ let storeTwo = {
   minCustomer: 3,
   maxCustomer: 24,
   averageCookies: 1.2,
-  // avgCustomer: 0,
+  totalDailyCookies: 0,
   cookiesPerHour: [],
   setCookies: function () {
     for (let i = 0; i < hours.length; i++) {
