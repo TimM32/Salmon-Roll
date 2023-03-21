@@ -5,4 +5,12 @@ body {
 
 header {
   font-family: 'Edu NSW ACT Foundation', cursive;
+    background-color: aquamarine;
+    
+}
+
+
+h1 { 
+    font-family: sans-serif;
+
 }
