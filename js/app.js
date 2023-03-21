@@ -2,7 +2,7 @@
 console.log('js connected');
 
 
-let parentElement = document.getElementById('cityProfiles');
+
 
 let hours = [
   '6am',
@@ -28,6 +28,7 @@ function Store(storeName, minCustomer, maxCustomer, averageCookies) {
   this.maxCustomer = maxCustomer;
   this.averageCookies = averageCookies;
   this.totalDailyCookies = 0;
+  // this.cookiesPerHour =
 }
 
 
@@ -60,10 +61,16 @@ let storeThree = new Store('Dubai', 11, 38, 3.7);
 let storeFour = new Store('Paris', 20, 38, 2.3);
 
 let storeFive = new Store('Lima', 2, 16, 4.6);
+
+
+
 // put this inside your new render
 Store.prototype.render = function () {
   let parentElement = document.getElementById('cityProfiles');
+  console.log('🚀 ~ file: app.js:66 ~ parentElement:', parentElement);
 
+  let article = document.createElement('article');
+  parentElement.appendChild(article);
 
   let cookieTable = document.getElementById('cookiesSold-table');
   console.log('🚀 ~ file: app.js:253 ~ cookkieTable:', cookieTable);
@@ -84,10 +91,13 @@ Store.prototype.render = function () {
 
   let averageCookies = document.createElement('td');
   averageCookies.textContent = this.averageCookies;
+  console.log('🚀 ~ file: app.js:87 ~ averageCookies:', averageCookies);
   storeRow.appendChild(averageCookies);
   cookieTable.appendChild(storeRow);
 
 };
+
+storeOne.setCookies();
 
 let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 for (let i = 0; i < allStores.length; i++) {
