@@ -38,12 +38,12 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
 Store.prototype.setCookies = function () {
   for (let i = 0; i < hours.length; i++) {
     this.cookiesPerHour[i] =
-        hours[i] +
-        ' ' +
-        Math.floor(
-          this.averageCookies *
-          avgcustomerHourly(this.minCustomer, this.maxCustomer)
-        );
+      hours[i] +
+      ' ' +
+      Math.floor(
+        this.averageCookies *
+        avgcustomerHourly(this.minCustomer, this.maxCustomer)
+      );
     return Math.floor(Math.random() * (this.minCustomer - this.maxCustomer) + this.minCustomer);
   }
 
@@ -61,7 +61,7 @@ let storeFour = new Store('Paris', 20, 38, 2.3);
 
 let storeFive = new Store('Lima', 2, 16, 4.6);
 // put this inside your new render
-Store.prototype.render = function(){
+Store.prototype.render = function () {
   let parentElement = document.getElementById('cityProfiles');
 
 
@@ -71,19 +71,26 @@ Store.prototype.render = function(){
   let storeRow = document.createElement('tr');
 
   let headNameCell = document.createElement('th');
-  headNameCell.textContent =
-    storeRow.appendChild(headNameCell);
+  headNameCell.textContent = this.storeName;
+  storeRow.appendChild(headNameCell);
 
-  // let nameCell = document.createElement('td');
-  // nameCell.textContent =
-  // headRow.appendChild.
+  let minCustomer = document.createElement('td');
+  minCustomer.textContent = this.minCustomer;
+  storeRow.appendChild(minCustomer);
 
+  let maxCustomer = document.createElement('td');
+  maxCustomer.textContent = this.maxCustomer;
+  storeRow.appendChild(maxCustomer);
+
+  let averageCookies = document.createElement('td');
+  averageCookies.textContent = this.averageCookies;
+  storeRow.appendChild(averageCookies);
   cookieTable.appendChild(storeRow);
 
 };
 
-let allStores =[storeOne, storeTwo, storeThree, storeFour, storeFive];
-for(let i = 0; i < allStores.length; i++){
+let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
+for (let i = 0; i < allStores.length; i++) {
   allStores[i].render();
 }
 
