@@ -229,6 +229,25 @@ let storeFive = {
 };
 
 
+// put this inside your new render
+let cookkieTable = document.getElementById('cookiesSold-table');
+console.log('🚀 ~ file: app.js:253 ~ cookkieTable:', cookkieTable);
+
+let headRow = document.createElement('tr');
+
+let headNameCell =document.createElement('th');
+headNameCell.textContent = 
+headRow.appendChild(headNameCell);
+
+
+
+
+
+
+cookkieTable.appendChild(headRow);
+
+
+
 
 
 storeOne.setCookies();
@@ -245,3 +264,10 @@ storeFour.renderStoreData();
 
 storeFive.setCookies();
 storeFive.renderStoreData();
+
+
+
+
+
+
+
