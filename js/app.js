@@ -117,9 +117,9 @@ let article = document.createElement('article');
 console.log('🚀 ~ file: app.js:61 ~ article:', article);
 parentElement.appendChild(article);
 
-let h2 = document.createElement('h2');
-console.log('🚀 ~ file: app.js:65 ~ h2:', h2);
-article.appendChild(h2);
+// let h2 = document.createElement('h2');
+// console.log('🚀 ~ file: app.js:65 ~ h2:', h2);
+// article.appendChild(h2);
 
 let storePara = document.createElement('p');
 console.log('🚀 ~ file: app.js:69 ~ storePara:', storePara);
@@ -127,6 +127,14 @@ storePara.textContent = 'Cookies be delicious!';
 article.appendChild(storePara);
 
 let storeUl = document.createElement('ul');
+for(let i = 0; i < hours.length; i++){
+
+  let storeLi = document.createElement('li');
+  console.log(storeOne.cookiesPerHour[i]);
+  storeLi.textContent = storeOne.cookiesPerHour[i];
+  
+}
+
 article.appendChild(storeUl);
 
 // let storeImage = document.createElement('img');
