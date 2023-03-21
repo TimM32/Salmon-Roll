@@ -1,4 +1,10 @@
 body {
+  background-color: salmon;
+  font-size: 34px;
+}
+
+header {
+  font-family: 'Edu NSW ACT Foundation', cursive;
     background-color: aquamarine;
     
 }
