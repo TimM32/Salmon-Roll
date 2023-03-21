@@ -30,7 +30,6 @@ let storeOne = {
   maxCustomer: 65,
   averageCookies: 6.3,
   // avgCustomer: 0,
-  totalDailyCookies: 0,
   cookiesPerHour: [],
   //because this function has an 'object' that it belongs to, it is referred to as a method.
   setCookies: function () {
@@ -40,18 +39,18 @@ let storeOne = {
         ' ' +
         Math.floor(
           this.averageCookies *
-            avgcustomerHourly(this.minCustomer, this.maxCustomer)
+          avgcustomerHourly(this.minCustomer, this.maxCustomer)
         );
     }
   },
-  renderStoreData: function(){
+  renderStoreData: function () {
     let article = document.createElement('article');
-    parentElement.appendChild(article);
+    // parentElement.appendChild(article);
     let storePara = document.createElement('p');
     storePara.textContent = 'Cookies be delicious!';
     article.appendChild(storePara);
     let storeUl = document.createElement('ul');
-    for(let i = 0; i < hours.length; i++){
+    for (let i = 0; i < hours.length; i++) {
       let storeLi = document.createElement('li');
       storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
       storeLi.textContent = storeOne.cookiesPerHour[i];
@@ -84,18 +83,18 @@ let storeTwo = {
         ' ' +
         Math.floor(
           this.averageCookies *
-            avgcustomerHourly(this.minCustomer, this.maxCustomer)
+          avgcustomerHourly(this.minCustomer, this.maxCustomer)
         );
     }
   },
-  renderStoreData: function(){
+  renderStoreData: function () {
     let article = document.createElement('article');
-    parentElement.appendChild(article);
+    // parentElement.appendChild(article);
     let storePara = document.createElement('p');
     storePara.textContent = 'Cookies be delicious!';
     article.appendChild(storePara);
     let storeUl = document.createElement('ul');
-    for(let i = 0; i < hours.length; i++){
+    for (let i = 0; i < hours.length; i++) {
       let storeLi = document.createElement('li');
       storeTwo.totalDailyCookies += parseInt(storeTwo.cookiesPerHour[i].split(' ')[1]);
       storeLi.textContent = storeTwo.cookiesPerHour[i];
