@@ -131,7 +131,9 @@ article.appendChild(storeUl);
 
 let storeImage = document.createElement('img');
 storeImage.setAttribute('src', 'images/' + storeImage.SalmonFish + '.PNG');
+{/* <img src="images/SalmonFish.PNG"></img>; */}
 article.appendChild(storeImage);
+
 
 
 storeOne.setCookies();
