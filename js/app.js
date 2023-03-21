@@ -3,6 +3,7 @@ console.log('js connected');
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 console.log('🚀 ~ file: app.js:5 ~ hours:', hours);
+let parentElement = document.getElementById('cityProfiles');
 
 
 let storeOne = {
@@ -43,7 +44,41 @@ let storeTwo = {
 
   }
 
+},
+
+renderStoreData: function(){
+
+let article = document.createElement('article');
+console.log('🚀 ~ file: app.js:61 ~ article:', article);
+parentElement.appendChild(article);
+
+// let h2 = document.createElement('h2');
+// console.log('🚀 ~ file: app.js:65 ~ h2:', h2);
+// article.appendChild(h2);
+
+let storePara = document.createElement('p');
+console.log('🚀 ~ file: app.js:69 ~ storePara:', storePara);
+storePara.textContent = 'Cookies be delicious!';
+article.appendChild(storePara);
+
+let storeUl = document.createElement('ul');
+for (let i = 0; i < hours.length; i++) {
+
+  let storeLi = document.createElement('li');
+  storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
+  console.log(storeOne.totalDailyCookies);
+  storeLi.textContent = storeOne.cookiesPerHour[i];
+  storeUl.appendChild(storeLi);
+}
+article.appendChild(storeUl);
+const listItem = document.createElement('li');
+listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies!';
+console.log(listItem);
+article.appendChild(listItem);
+}
 };
+
+
 
 
 let storeThree = {
@@ -99,8 +134,8 @@ let storeFive = {
 
 };
 
-
 storeOne.setCookies();
+storeOne.renderStoreData();
 
 
 // for(let i = 0; i < storeOne.hours.length; i++){
@@ -111,46 +146,7 @@ storeOne.setCookies();
 storeOne.setCookies();
 console.log('🚀 ~ file: app.js:46 ~ storeOne:', storeOne);
 
-let parentElement = document.getElementById('cityProfiles');
-console.log('🚀 ~ file: app.js:58 ~ parentElement:', parentElement);
 
-let article = document.createElement('article');
-console.log('🚀 ~ file: app.js:61 ~ article:', article);
-parentElement.appendChild(article);
-
-// let h2 = document.createElement('h2');
-// console.log('🚀 ~ file: app.js:65 ~ h2:', h2);
-// article.appendChild(h2);
-
-let storePara = document.createElement('p');
-console.log('🚀 ~ file: app.js:69 ~ storePara:', storePara);
-storePara.textContent = 'Cookies be delicious!';
-article.appendChild(storePara);
-
-let storeUl = document.createElement('ul');
-for (let i = 0; i < hours.length; i++) {
-
-  let storeLi = document.createElement('li');
-
-
-
-  storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
-
-  console.log(storeOne.totalDailyCookies);
-
-  storeLi.textContent = storeOne.cookiesPerHour[i];
-
-  storeUl.appendChild(storeLi);
-
-}
-
-article.appendChild(storeUl);
-
-
-const listItem = document.createElement('li');
-listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies!';
-console.log(listItem);
-article.appendChild(listItem);
 
 
 
