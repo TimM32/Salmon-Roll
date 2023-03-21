@@ -1,6 +1,9 @@
 'use strict';
 console.log('js connected');
 
+
+let parentElement = document.getElementById('cityProfiles');
+
 let hours = [
   '6am',
   '7am',
@@ -41,32 +44,70 @@ let storeOne = {
         );
     }
   },
+  renderStoreData: function(){
+    let article = document.createElement('article');
+    parentElement.appendChild(article);
+    let storePara = document.createElement('p');
+    storePara.textContent = 'Cookies be delicious!';
+    article.appendChild(storePara);
+    let storeUl = document.createElement('ul');
+    for(let i = 0; i < hours.length; i++){
+      let storeLi = document.createElement('li');
+      storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
+      storeLi.textContent = storeOne.cookiesPerHour[i];
+      storeUl.appendChild(storeLi);
+    }
+    article.appendChild(storeUl);
+    const listItem = document.createElement('li');
+    listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies';
+    console.log(listItem);
+    article.appendChild(listItem);
+  }
 };
 
 function avgcustomerHourly(minCustomer, maxCustomer) {
   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
 
-// let storeTwo = {
-//   storeName: 'Toyko',
-//   hourlyTotal: [],
-//   minCustomer: 3,
-//   maxCustomer: 24,
-//   averageCookies: 1.2,
-//   // avgCustomer: 0,
-//   cookiesPerHour: [],
-//   setCookies: function () {
-//     for (let i = 0; i < hours.length; i++) {
-//       this.cookiesPerHour[i] =
-//         hours[i] +
-//         ' ' +
-//         Math.floor(
-//           this.averageCookies *
-//             avgcustomerHourly(this.minCustomer, this.maxCustomer)
-//         );
-//     }
-//   },
-// };
+let storeTwo = {
+  storeName: 'Toyko',
+  hourlyTotal: [],
+  minCustomer: 3,
+  maxCustomer: 24,
+  averageCookies: 1.2,
+  // avgCustomer: 0,
+  cookiesPerHour: [],
+  setCookies: function () {
+    for (let i = 0; i < hours.length; i++) {
+      this.cookiesPerHour[i] =
+        hours[i] +
+        ' ' +
+        Math.floor(
+          this.averageCookies *
+            avgcustomerHourly(this.minCustomer, this.maxCustomer)
+        );
+    }
+  },
+  renderStoreData: function(){
+    let article = document.createElement('article');
+    parentElement.appendChild(article);
+    let storePara = document.createElement('p');
+    storePara.textContent = 'Cookies be delicious!';
+    article.appendChild(storePara);
+    let storeUl = document.createElement('ul');
+    for(let i = 0; i < hours.length; i++){
+      let storeLi = document.createElement('li');
+      storeTwo.totalDailyCookies += parseInt(storeTwo.cookiesPerHour[i].split(' ')[1]);
+      storeLi.textContent = storeTwo.cookiesPerHour[i];
+      storeUl.appendChild(storeLi);
+    }
+    article.appendChild(storeUl);
+    const listItem = document.createElement('li');
+    listItem.textContent = 'Total: ' + storeTwo.totalDailyCookies + ' cookies';
+    console.log(listItem);
+    article.appendChild(listItem);
+  }
+};
 
 // let storeThree = {
 //   storeName: 'Dubai',
@@ -129,56 +170,18 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
 //         );
 //     }
 //   },
+//  add the function here.
 // };
 
 
 
 
 storeOne.setCookies();
+storeOne.renderStoreData();
 
+storeTwo.setCookies();
+storeTwo.renderStoreData();
 
-
-
-
-let parentElement = document.getElementById('cityProfiles');
-
-let article = document.createElement('article');
-parentElement.appendChild(article);
-
-// let h2 = document.createElement('h2');
-// article.appendChild(h2);
-
-let storePara = document.createElement('p');
-storePara.textContent = 'Cookies be delicious!';
-article.appendChild(storePara);
-
-let storeUl = document.createElement('ul');
-
-for(let i = 0; i < hours.length; i++){
-
-  let storeLi = document.createElement('li');
-
-  //add totals
-  storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
-
-
-  //add numbers to the li
-  storeLi.textContent = storeOne.cookiesPerHour[i];
-  //appending to html
-  storeUl.appendChild(storeLi);
-}
-
-
-article.appendChild(storeUl);
-
-
-console.log(storeOne.totalDailyCookies);
-
-const listItem = document.createElement('li');
-listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies';
-console.log(listItem);
-article.appendChild(listItem);
-// storeTwo.setCookies();
 // storeThree.setCookies();
 // storeFour.setCookies();
 // storeFive.setCookies();
