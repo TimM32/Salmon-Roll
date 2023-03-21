@@ -45,7 +45,7 @@ let storeOne = {
   },
   renderStoreData: function () {
     let article = document.createElement('article');
-    // parentElement.appendChild(article);
+    parentElement.appendChild(article);
     let storePara = document.createElement('p');
     storePara.textContent = 'Cookies be delicious!';
     article.appendChild(storePara);
@@ -89,7 +89,7 @@ let storeTwo = {
   },
   renderStoreData: function () {
     let article = document.createElement('article');
-    // parentElement.appendChild(article);
+    parentElement.appendChild(article);
     let storePara = document.createElement('p');
     storePara.textContent = 'Cookies be delicious!';
     article.appendChild(storePara);
