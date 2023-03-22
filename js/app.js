@@ -57,9 +57,9 @@ StoreAreas.prototype.render = function () {
   storeRow.appendChild(headNameCell);
 
   for (let i = 0; i < hours.length; i++) {
-    this.totalDailyCookies += this.averageCookies[i];
+    this.totalDailyCookies += this.totalDailyCookies[i];
     let storeCell = document.createElement('td');
-    storeCell.textContent = this.averageCookies[i];
+    storeCell.textContent = this.totalDailyCookies[i];
     storeRow.appendChild(storeCell);
   }
   let totalDailyCookies = document.createElement('td');
