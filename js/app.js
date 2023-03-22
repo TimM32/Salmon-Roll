@@ -77,7 +77,7 @@ Store.prototype.render = function () {
 
   let storeRow = document.createElement('tr');
 
-  let headNameCell = document.createElement('th');
+  let headNameCell = document.createElement('td');
   headNameCell.textContent = this.storeName;
   storeRow.appendChild(headNameCell);
 
