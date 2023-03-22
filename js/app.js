@@ -3,6 +3,8 @@ console.log('js connected');
 
 
 
+let cookieTable = document.getElementById('cookiesSold-table');
+
 let parentElement = document.getElementById('cityProfiles');
 console.log('🚀 ~ file: app.js:7 ~ parentElement:', parentElement);
 
@@ -24,13 +26,13 @@ let hours = [
   '8pm'
 ];
 
-function StoreAreas(storeName, minCustomer, maxCustomer, averageCookies, totalDailyCookies, cookiesPerHour) {
+function StoreAreas(storeName, minCustomer, maxCustomer, averageCookies) {
   this.storeName = storeName;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.averageCookies = averageCookies;
-  this.totalDailyCookies = totalDailyCookies;
-  this.cookiesPerHour = cookiesPerHour;
+  this.totalDailyCookies = 0;
+  this.cookiesPerHour = [];
 }
 
 
@@ -46,7 +48,6 @@ StoreAreas.prototype.setCookies = function () {
   }
 
 };
-let cookieTable = document.getElementById('cookiesSold-table');
 // put this inside your new render
 StoreAreas.prototype.render = function () {
   this.setCookies();
@@ -57,9 +58,9 @@ StoreAreas.prototype.render = function () {
   storeRow.appendChild(headNameCell);
 
   for (let i = 0; i < hours.length; i++) {
-    this.totalDailyCookies += this.totalDailyCookies[i];
+    this.totalDailyCookies += this.averageCookies[i];
     let storeCell = document.createElement('td');
-    storeCell.textContent = this.totalDailyCookies[i];
+    storeCell.textContent = this.averageCookies[i];
     storeRow.appendChild(storeCell);
   }
   let totalDailyCookies = document.createElement('td');
@@ -68,16 +69,22 @@ StoreAreas.prototype.render = function () {
 
 };
 
-// let allStoreAreas = [storeOne, storeTwo, storeThree, storeFour, storeFive];
-// for (let i = 0; i < allStoreAreas.length; i++) {
-//   allStoreAreas[i].render();
-// }
 
 let storeOne = new StoreAreas('Seattle', 23, 65, 6.3);
 // let storeTwo = new StoreAreas('Toyko', 3, 24, 1.2);
 // let storeThree = new StoreAreas('Dubai', 11, 38, 3.7);
 // let storeFour = new StoreAreas('Paris', 20, 38, 2.3);
 // let storeFive = new StoreAreas('Lima', 2, 16, 4.6);
+
+
+
+
+
+
+let allStoreAreas = [storeOne];
+for (let i = 0; i < allStoreAreas.length; i++) {
+  allStoreAreas[i].render();
+}
 
 
 storeOne.setCookies();
