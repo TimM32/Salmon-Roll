@@ -36,69 +36,64 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
 
-// Store.prototype.setCookies = function () {
-//   for (let i = 0; i < hours.length; i++) {
-//     this.cookiesPerHour[i] =
-//       hours[i] +
-//       ' ' +
-//       Math.floor(
-//         this.averageCookies *
-//         avgcustomerHourly(this.minCustomer, this.maxCustomer)
-//       );
-//     return Math.floor(Math.random() * (this.minCustomer - this.maxCustomer) + this.minCustomer);
-//   }
+Store.prototype.setCookies = function () {
+  for (let i = 0; i < hours.length; i++) {
+    this.cookiesPerHour[i] =
+      hours[i] +
+      ' ' +
+      Math.floor(
+        this.averageCookies *
+        avgcustomerHourly(this.minCustomer, this.maxCustomer)
+      );
+    return Math.floor(Math.random() * (this.minCustomer - this.maxCustomer) + this.minCustomer);
+  }
 
-// };
-
-
-
-let storeOne = new Store('Seattle', 23, 65, 6.3);
-
-let storeTwo = new Store('Toyko', 3, 24, 1.2);
-
-let storeThree = new Store('Dubai', 11, 38, 3.7);
-
-let storeFour = new Store('Paris', 20, 38, 2.3);
-
-let storeFive = new Store('Lima', 2, 16, 4.6);
-
-
+};
 
 // put this inside your new render
 Store.prototype.render = function () {
   let parentElement = document.getElementById('cityProfiles');
+  let cookieTable = document.getElementById('cookiesSold-table');
+  let storeRow = document.createElement('tr');
+
   console.log('🚀 ~ file: app.js:66 ~ parentElement:', parentElement);
 
   let article = document.createElement('article');
   parentElement.appendChild(article);
 
-  let cookieTable = document.getElementById('cookiesSold-table');
+  
   console.log('🚀 ~ file: app.js:253 ~ cookkieTable:', cookieTable);
 
-  let storeRow = document.createElement('tr');
+  
 
   let headNameCell = document.createElement('tr');
   headNameCell.textContent = this.storeName;
   storeRow.appendChild(headNameCell);
 
-  let minCustomer = document.createElement('td');
-  minCustomer.textContent = this.minCustomer;
-  storeRow.appendChild(minCustomer);
+  for (let i = 0; i < hours.length; i++) {
+    this.totalDailyCookies += this.averageCookies[i];
+    let storeCell = document.createElement('td');
+    storeCell.textContent = this.averageCookies[i];
 
-  let maxCustomer = document.createElement('td');
-  maxCustomer.textContent = this.maxCustomer;
-  storeRow.appendChild(maxCustomer);
+    let minCustomer = document.createElement('td');
+    minCustomer.textContent = this.minCustomer;
+    storeRow.appendChild(minCustomer);
 
-  let averageCookies = document.createElement('td');
-  averageCookies.textContent = this.averageCookies;
-  console.log('🚀 ~ file: app.js:87 ~ averageCookies:', averageCookies);
-  storeRow.appendChild(averageCookies);
-  cookieTable.appendChild(storeRow);
+    let maxCustomer = document.createElement('td');
+    maxCustomer.textContent = this.maxCustomer;
+    storeRow.appendChild(maxCustomer);
+
+    // let averageCookies = document.createElement('td');
+    // averageCookies.textContent = this.averageCookies;
+    // console.log('🚀 ~ file: app.js:87 ~ averageCookies:', averageCookies);
+    // storeRow.appendChild(averageCookies);
+    // cookieTable.appendChild(storeRow);
 
 
-  let totalDailyCookies = document.createElement('td');
-  totalDailyCookies.textContent =this.totalDailyCookies;
-  storeRow.appendChild(totalDailyCookies);
+    let totalDailyCookies = document.createElement('td');
+    totalDailyCookies.textContent = this.totalDailyCookies;
+    storeRow.appendChild(totalDailyCookies);
+  }
 };
 
 // storeOne.setCookies();
@@ -109,6 +104,13 @@ for (let i = 0; i < allStores.length; i++) {
 }
 
 
+let storeOne = new Store('Seattle', 23, 65, 6.3);
+let storeTwo = new Store('Toyko', 3, 24, 1.2);
+let storeThree = new Store('Dubai', 11, 38, 3.7);
+let storeFour = new Store('Paris', 20, 38, 2.3);
+let storeFive = new Store('Lima', 2, 16, 4.6);
 
+
+storeOne.setCookies();
 
 
