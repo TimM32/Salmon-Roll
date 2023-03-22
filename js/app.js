@@ -55,18 +55,8 @@ Store.prototype.render = function () {
   let parentElement = document.getElementById('cityProfiles');
   let cookieTable = document.getElementById('cookiesSold-table');
   let storeRow = document.createElement('tr');
-
-  console.log('🚀 ~ file: app.js:66 ~ parentElement:', parentElement);
-
-  let article = document.createElement('article');
-  parentElement.appendChild(article);
-
-  
-  console.log('🚀 ~ file: app.js:253 ~ cookkieTable:', cookieTable);
-
-  
-
-  let headNameCell = document.createElement('tr');
+  cookieTable.appendChild(storeRow);
+  let headNameCell = document.createElement('th');
   headNameCell.textContent = this.storeName;
   storeRow.appendChild(headNameCell);
 
@@ -74,6 +64,9 @@ Store.prototype.render = function () {
     this.totalDailyCookies += this.averageCookies[i];
     let storeCell = document.createElement('td');
     storeCell.textContent = this.averageCookies[i];
+
+    let article = document.createElement('article');
+    parentElement.appendChild(article);
 
     let minCustomer = document.createElement('td');
     minCustomer.textContent = this.minCustomer;
@@ -83,26 +76,17 @@ Store.prototype.render = function () {
     maxCustomer.textContent = this.maxCustomer;
     storeRow.appendChild(maxCustomer);
 
-    // let averageCookies = document.createElement('td');
-    // averageCookies.textContent = this.averageCookies;
-    // console.log('🚀 ~ file: app.js:87 ~ averageCookies:', averageCookies);
-    // storeRow.appendChild(averageCookies);
-    // cookieTable.appendChild(storeRow);
-
-
+  
     let totalDailyCookies = document.createElement('td');
     totalDailyCookies.textContent = this.totalDailyCookies;
     storeRow.appendChild(totalDailyCookies);
   }
 };
 
-// storeOne.setCookies();
-
 let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 for (let i = 0; i < allStores.length; i++) {
   allStores[i].render();
 }
-
 
 let storeOne = new Store('Seattle', 23, 65, 6.3);
 let storeTwo = new Store('Toyko', 3, 24, 1.2);
