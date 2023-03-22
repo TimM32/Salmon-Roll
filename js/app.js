@@ -42,9 +42,8 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
 
 StoreAreas.prototype.setCookies = function () {
   for (let i = 0; i < hours.length; i++) {
-    this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer)
+    this.cookiesPerHour[i] = Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer)
     );
-    return Math.floor(Math.random() * (this.minCustomer - this.maxCustomer) + this.minCustomer);
   }
 
 };
@@ -58,11 +57,23 @@ StoreAreas.prototype.render = function () {
   storeRow.appendChild(headNameCell);
 
   for (let i = 0; i < hours.length; i++) {
-    this.totalDailyCookies += this.averageCookies[i];
+    // adding up total cookies.
+    console.log('for totalling cookies',this.cookiesPerHour[i]);
+    this.totalDailyCookies += this.cookiesPerHour[i];
+
+
+
+
     let storeCell = document.createElement('td');
     storeCell.textContent = this.averageCookies[i];
     storeRow.appendChild(storeCell);
+
+
+
+
   }
+
+
   let totalDailyCookies = document.createElement('td');
   totalDailyCookies.textContent = this.totalDailyCookies;
   storeRow.appendChild(totalDailyCookies);
