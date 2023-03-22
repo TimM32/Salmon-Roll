@@ -61,11 +61,10 @@ StoreAreas.prototype.render = function () {
     console.log('for totalling cookies',this.cookiesPerHour[i]);
     this.totalDailyCookies += this.cookiesPerHour[i];
 
-
-
-
     let storeCell = document.createElement('td');
-    storeCell.textContent = this.averageCookies[i];
+
+    storeCell.textContent = this.cookiesPerHour[i];
+
     storeRow.appendChild(storeCell);
 
 
