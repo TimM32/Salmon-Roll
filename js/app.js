@@ -3,6 +3,8 @@ console.log('js connected');
 
 
 
+let parentElement = document.getElementById('cityProfiles');
+console.log('🚀 ~ file: app.js:7 ~ parentElement:', parentElement);
 
 let hours = [
   '6am',
@@ -53,7 +55,6 @@ let cookieTable = document.getElementById('cookiesSold-table');
 // put this inside your new render
 StoreAreas.prototype.render = function () {
   this.setCookies();
-  let parentElement = document.getElementById('cityProfiles');
   let storeRow = document.createElement('tr');
   cookieTable.appendChild(storeRow);
   let headNameCell = document.createElement('th');
@@ -64,35 +65,24 @@ StoreAreas.prototype.render = function () {
     this.totalDailyCookies += this.averageCookies[i];
     let storeCell = document.createElement('td');
     storeCell.textContent = this.averageCookies[i];
-
-    let article = document.createElement('article');
-    parentElement.appendChild(article);
-
-    let minCustomer = document.createElement('td');
-    minCustomer.textContent = this.minCustomer;
-    storeRow.appendChild(minCustomer);
-
-    let maxCustomer = document.createElement('td');
-    maxCustomer.textContent = this.maxCustomer;
-    storeRow.appendChild(maxCustomer);
-
-
-    let totalDailyCookies = document.createElement('td');
-    totalDailyCookies.textContent = this.totalDailyCookies;
-    storeRow.appendChild(totalDailyCookies);
+    storeRow.appendChild(storeCell);
   }
+  let totalDailyCookies = document.createElement('td');
+  totalDailyCookies.textContent = this.totalDailyCookies;
+  storeRow.appendChild(totalDailyCookies);
+
 };
 
-// let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
-// for (let i = 0; i < allStores.length; i++) {
-//   allStores[i].render();
-// }
+let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
+for (let i = 0; i < allStores.length; i++) {
+  allStores[i].render();
+}
 
 let storeOne = new StoreAreas('Seattle', 23, 65, 6.3);
-// let storeTwo = new Store('Toyko', 3, 24, 1.2);
-// let storeThree = new Store('Dubai', 11, 38, 3.7);
-// let storeFour = new Store('Paris', 20, 38, 2.3);
-// let storeFive = new Store('Lima', 2, 16, 4.6);
+let storeTwo = new Store('Toyko', 3, 24, 1.2);
+let storeThree = new Store('Dubai', 11, 38, 3.7);
+let storeFour = new Store('Paris', 20, 38, 2.3);
+let storeFive = new Store('Lima', 2, 16, 4.6);
 
 
 storeOne.setCookies();
