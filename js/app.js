@@ -22,13 +22,13 @@ let hours = [
   '8pm'
 ];
 
-function Store(storeName, minCustomer, maxCustomer, averageCookies) {
+function StoreAreas(storeName, minCustomer, maxCustomer, averageCookies, totalDailyCookies, cookiesPerHour) {
   this.storeName = storeName;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.averageCookies = averageCookies;
-  this.totalDailyCookies = 0;
-  // this.cookiesPerHour =
+  this.totalDailyCookies = totalDailyCookies;
+  this.cookiesPerHour = cookiesPerHour;
 }
 
 
@@ -36,7 +36,7 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
 
-Store.prototype.setCookies = function () {
+StoreAreas.prototype.setCookies = function () {
   for (let i = 0; i < hours.length; i++) {
     this.cookiesPerHour[i] =
       hours[i] +
@@ -51,7 +51,8 @@ Store.prototype.setCookies = function () {
 };
 let cookieTable = document.getElementById('cookiesSold-table');
 // put this inside your new render
-Store.prototype.render = function () {
+StoreAreas.prototype.render = function () {
+  this.setCookies();
   let parentElement = document.getElementById('cityProfiles');
   let storeRow = document.createElement('tr');
   cookieTable.appendChild(storeRow);
@@ -59,41 +60,39 @@ Store.prototype.render = function () {
   headNameCell.textContent = this.storeName;
   storeRow.appendChild(headNameCell);
 
-  // for (let i = 0; i < hours.length; i++) {
-  //   this.totalDailyCookies += this.averageCookies[i];
-  //   let storeCell = document.createElement('td');
-  //   storeCell.textContent = this.averageCookies[i];
+  for (let i = 0; i < hours.length; i++) {
+    this.totalDailyCookies += this.averageCookies[i];
+    let storeCell = document.createElement('td');
+    storeCell.textContent = this.averageCookies[i];
 
-  let article = document.createElement('article');
-  parentElement.appendChild(article);
+    let article = document.createElement('article');
+    parentElement.appendChild(article);
 
-  let minCustomer = document.createElement('td');
-  minCustomer.textContent = this.minCustomer;
-  storeRow.appendChild(minCustomer);
+    let minCustomer = document.createElement('td');
+    minCustomer.textContent = this.minCustomer;
+    storeRow.appendChild(minCustomer);
 
-  let maxCustomer = document.createElement('td');
-  maxCustomer.textContent = this.maxCustomer;
-  storeRow.appendChild(maxCustomer);
+    let maxCustomer = document.createElement('td');
+    maxCustomer.textContent = this.maxCustomer;
+    storeRow.appendChild(maxCustomer);
 
 
-  let totalDailyCookies = document.createElement('td');
-  totalDailyCookies.textContent = this.totalDailyCookies;
-  storeRow.appendChild(totalDailyCookies);
+    let totalDailyCookies = document.createElement('td');
+    totalDailyCookies.textContent = this.totalDailyCookies;
+    storeRow.appendChild(totalDailyCookies);
+  }
 };
-// };
 
-let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
-for (let i = 0; i < allStores.length; i++) {
-  allStores[i].render();
-}
+// let allStores = [storeOne, storeTwo, storeThree, storeFour, storeFive];
+// for (let i = 0; i < allStores.length; i++) {
+//   allStores[i].render();
+// }
 
-let storeOne = new Store('Seattle', 23, 65, 6.3);
-let storeTwo = new Store('Toyko', 3, 24, 1.2);
-let storeThree = new Store('Dubai', 11, 38, 3.7);
-let storeFour = new Store('Paris', 20, 38, 2.3);
-let storeFive = new Store('Lima', 2, 16, 4.6);
-
-
-storeOne.allStores();
+let storeOne = new StoreAreas('Seattle', 23, 65, 6.3);
+// let storeTwo = new Store('Toyko', 3, 24, 1.2);
+// let storeThree = new Store('Dubai', 11, 38, 3.7);
+// let storeFour = new Store('Paris', 20, 38, 2.3);
+// let storeFive = new Store('Lima', 2, 16, 4.6);
 
 
+storeOne.setCookies();
