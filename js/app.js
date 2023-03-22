@@ -40,13 +40,8 @@ function avgcustomerHourly(minCustomer, maxCustomer) {
 
 StoreAreas.prototype.setCookies = function () {
   for (let i = 0; i < hours.length; i++) {
-    this.cookiesPerHour[i] =
-      hours[i] +
-      ' ' +
-      Math.floor(
-        this.averageCookies *
-        avgcustomerHourly(this.minCustomer, this.maxCustomer)
-      );
+    this.cookiesPerHour[i] = hours[i] + ' ' + Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer)
+    );
     return Math.floor(Math.random() * (this.minCustomer - this.maxCustomer) + this.minCustomer);
   }
 
