@@ -81,20 +81,22 @@ StoreAreas.prototype.render = function () {
 
 
 let storeOne = new StoreAreas('Seattle', 23, 65, 6.3);
-// let storeTwo = new StoreAreas('Toyko', 3, 24, 1.2);
-// let storeThree = new StoreAreas('Dubai', 11, 38, 3.7);
-// let storeFour = new StoreAreas('Paris', 20, 38, 2.3);
-// let storeFive = new StoreAreas('Lima', 2, 16, 4.6);
+let storeTwo = new StoreAreas('Toyko', 3, 24, 1.2);
+let storeThree = new StoreAreas('Dubai', 11, 38, 3.7);
+let storeFour = new StoreAreas('Paris', 20, 38, 2.3);
+let storeFive = new StoreAreas('Lima', 2, 16, 4.6);
 
 
 
 
 
 
-let allStoreAreas = [storeOne];
+let allStoreAreas = [storeOne,storeTwo,storeThree,storeFour,storeFive];
+
+
 for (let i = 0; i < allStoreAreas.length; i++) {
   allStoreAreas[i].render();
 }
 
 
-storeOne.setCookies();
+// storeOne.setCookies();
