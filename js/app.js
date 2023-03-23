@@ -2,7 +2,11 @@
 console.log('js connected');
 
 
+
+let cookieTable = document.getElementById('cookiesSold-table');
+
 let parentElement = document.getElementById('cityProfiles');
+console.log('🚀 ~ file: app.js:7 ~ parentElement:', parentElement);
 
 let hours = [
   '6am',
@@ -21,227 +25,78 @@ let hours = [
   '7pm',
   '8pm'
 ];
-// console.log('🚀 ~ file: app.js:5 ~ hours:', hours);
 
-let storeOne = {
-  storeName: 'Seattle',
-  hourlyTotal: [],
-  minCustomer: 23,
-  maxCustomer: 65,
-  averageCookies: 6.3,
-  totalDailyCookies:  0,
-  cookiesPerHour: [],
-  //because this function has an 'object' that it belongs to, it is referred to as a method.
-  setCookies: function () {
-    for (let i = 0; i < hours.length; i++) {
-      this.cookiesPerHour[i] =
-        hours[i] +
-        ' ' +
-        Math.floor(
-          this.averageCookies *
-          avgcustomerHourly(this.minCustomer, this.maxCustomer)
-        );
-    }
-  },
-  renderStoreData: function () {
-    let article = document.createElement('article');
-    parentElement.appendChild(article);
-    let storePara = document.createElement('p');
-    storePara.textContent = 'Cookies be delicious!';
-    article.appendChild(storePara);
-    let storeUl = document.createElement('ul');
-    for (let i = 0; i < hours.length; i++) {
-      let storeLi = document.createElement('li');
-      storeOne.totalDailyCookies += parseInt(storeOne.cookiesPerHour[i].split(' ')[1]);
-      storeLi.textContent = storeOne.cookiesPerHour[i];
-      storeUl.appendChild(storeLi);
-    }
-    article.appendChild(storeUl);
-    const listItem = document.createElement('li');
-    listItem.textContent = 'Total: ' + storeOne.totalDailyCookies + ' cookies';
-    console.log(listItem);
-    article.appendChild(listItem);
-  }
-};
+function StoreAreas(storeName, minCustomer, maxCustomer, averageCookies) {
+  this.storeName = storeName;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.averageCookies = averageCookies;
+  this.totalDailyCookies = 0;
+  this.cookiesPerHour = [];
+}
+
 
 function avgcustomerHourly(minCustomer, maxCustomer) {
   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
 
-let storeTwo = {
-  storeName: 'Toyko',
-  hourlyTotal: [],
-  minCustomer: 3,
-  maxCustomer: 24,
-  averageCookies: 1.2,
-  totalDailyCookies: 0,
-  cookiesPerHour: [],
-  setCookies: function () {
-    for (let i = 0; i < hours.length; i++) {
-      this.cookiesPerHour[i] =
-        hours[i] +
-        ' ' +
-        Math.floor(
-          this.averageCookies *
-          avgcustomerHourly(this.minCustomer, this.maxCustomer)
-        );
-    }
-  },
-  renderStoreData: function () {
-    let article = document.createElement('article');
-    parentElement.appendChild(article);
-    let storePara = document.createElement('p');
-    storePara.textContent = 'Cookies be delicious!';
-    article.appendChild(storePara);
-    let storeUl = document.createElement('ul');
-    for (let i = 0; i < hours.length; i++) {
-      let storeLi = document.createElement('li');
-      storeTwo.totalDailyCookies += parseInt(storeTwo.cookiesPerHour[i].split(' ')[1]);
-      storeLi.textContent = storeTwo.cookiesPerHour[i];
-      storeUl.appendChild(storeLi);
-    }
-    article.appendChild(storeUl);
-    const listItem = document.createElement('li');
-    listItem.textContent = 'Total: ' + storeTwo.totalDailyCookies + ' cookies';
-    console.log(listItem);
-    article.appendChild(listItem);
+StoreAreas.prototype.setCookies = function () {
+  for (let i = 0; i < hours.length; i++) {
+    this.cookiesPerHour[i] = Math.floor(this.averageCookies * avgcustomerHourly(this.minCustomer, this.maxCustomer)
+    );
   }
-};
 
-let storeThree = {
-  storeName: 'Dubai',
-  hourlyTotal: [],
-  minCustomer: 11,
-  maxCustomer: 38,
-  averageCookies: 3.7,
-  totalDailyCookies: 0,
-  cookiesPerHour: [],
-  setCookies: function () {
-    for (let i = 0; i < hours.length; i++) {
-      this.cookiesPerHour[i] =
-        hours[i] +
-        ' ' +
-        Math.floor(
-          this.averageCookies *
-            avgcustomerHourly(this.minCustomer, this.maxCustomer)
-        );
-    }
-  },
-  renderStoreData: function () {
-    let article = document.createElement('article');
-    parentElement.appendChild(article);
-    let storePara = document.createElement('p');
-    storePara.textContent = 'Cookies be delicious!';
-    article.appendChild(storePara);
-    let storeUl = document.createElement('ul');
-    for (let i = 0; i < hours.length; i++) {
-      let storeLi = document.createElement('li');
-      storeThree.totalDailyCookies += parseInt(storeThree.cookiesPerHour[i].split(' ')[1]);
-      storeLi.textContent = storeThree.cookiesPerHour[i];
-      storeUl.appendChild(storeLi);
-    }
-    article.appendChild(storeUl);
-    const listItem = document.createElement('li');
-    listItem.textContent = 'Total: ' + storeThree.totalDailyCookies + ' cookies';
-    console.log(listItem);
-    article.appendChild(listItem);
-  }
 };
+// put this inside your new render
+StoreAreas.prototype.render = function () {
+  this.setCookies();
+  let storeRow = document.createElement('tr');
+  cookieTable.appendChild(storeRow);
+  let headNameCell = document.createElement('th');
+  headNameCell.textContent = this.storeName;
+  storeRow.appendChild(headNameCell);
 
-let storeFour = {
-  storeName: 'Paris',
-  hourlyTotal: [],
-  minCustomer: 20,
-  maxCustomer: 38,
-  averageCookies: 2.3,
-  totalDailyCookies: 0,
-  cookiesPerHour: [],
-  setCookies: function () {
-    for (let i = 0; i < hours.length; i++) {
-      this.cookiesPerHour[i] =
-        hours[i] +
-        ' ' +
-        Math.floor(
-          this.averageCookies *
-            avgcustomerHourly(this.minCustomer, this.maxCustomer)
-        );
-    }
-  },
-  renderStoreData: function () {
-    let article = document.createElement('article');
-    parentElement.appendChild(article);
-    let storePara = document.createElement('p');
-    storePara.textContent = 'Cookies be delicious!';
-    article.appendChild(storePara);
-    let storeUl = document.createElement('ul');
-    for (let i = 0; i < hours.length; i++) {
-      let storeLi = document.createElement('li');
-      storeFour.totalDailyCookies += parseInt(storeFour.cookiesPerHour[i].split(' ')[1]);
-      storeLi.textContent = storeFour.cookiesPerHour[i];
-      storeUl.appendChild(storeLi);
-    }
-    article.appendChild(storeUl);
-    const listItem = document.createElement('li');
-    listItem.textContent = 'Total: ' + storeFour.totalDailyCookies + ' cookies';
-    console.log(listItem);
-    article.appendChild(listItem);
-  }
-};
+  for (let i = 0; i < hours.length; i++) {
+    // adding up total cookies.
+    console.log('for totalling cookies',this.cookiesPerHour[i]);
+    this.totalDailyCookies += this.cookiesPerHour[i];
 
-let storeFive = {
-  storeName: 'Lima',
-  hourlyTotal: [],
-  minCustomer: 2,
-  maxCustomer: 16,
-  averageCookies: 4.6,
-  totalDailyCookies: 0,
-  cookiesPerHour: [],
-  setCookies: function () {
-    for (let i = 0; i < hours.length; i++) {
-      this.cookiesPerHour[i] =
-        hours[i] +
-        ' ' +
-        Math.floor(
-          this.averageCookies *
-            avgcustomerHourly(this.minCustomer, this.maxCustomer)
-        );
-    }
-  },
-  renderStoreData: function () {
-    let article = document.createElement('article');
-    parentElement.appendChild(article);
-    let storePara = document.createElement('p');
-    storePara.textContent = 'Cookies be delicious!';
-    article.appendChild(storePara);
-    let storeUl = document.createElement('ul');
-    for (let i = 0; i < hours.length; i++) {
-      let storeLi = document.createElement('li');
-      storeFive.totalDailyCookies += parseInt(storeFive.cookiesPerHour[i].split(' ')[1]);
-      storeLi.textContent = storeFive.cookiesPerHour[i];
-      storeUl.appendChild(storeLi);
-    }
-    article.appendChild(storeUl);
-    const listItem = document.createElement('li');
-    listItem.textContent = 'Total: ' + storeFive.totalDailyCookies + ' cookies';
-    console.log(listItem);
-    article.appendChild(listItem);
+    let storeCell = document.createElement('td');
+
+    storeCell.textContent = this.cookiesPerHour[i];
+
+    storeRow.appendChild(storeCell);
+
+
+
+
   }
+
+
+  let totalDailyCookies = document.createElement('td');
+  totalDailyCookies.textContent = this.totalDailyCookies;
+  storeRow.appendChild(totalDailyCookies);
+
 };
 
 
+let storeOne = new StoreAreas('Seattle', 23, 65, 6.3);
+let storeTwo = new StoreAreas('Toyko', 3, 24, 1.2);
+let storeThree = new StoreAreas('Dubai', 11, 38, 3.7);
+let storeFour = new StoreAreas('Paris', 20, 38, 2.3);
+let storeFive = new StoreAreas('Lima', 2, 16, 4.6);
 
 
-storeOne.setCookies();
-storeOne.renderStoreData();
 
-storeTwo.setCookies();
-storeTwo.renderStoreData();
 
-storeThree.setCookies();
-storeThree.renderStoreData();
 
-storeFour.setCookies();
-storeFour.renderStoreData();
 
-storeFive.setCookies();
-storeFive.renderStoreData();
+let allStoreAreas = [storeOne,storeTwo,storeThree,storeFour,storeFive];
+
+
+for (let i = 0; i < allStoreAreas.length; i++) {
+  allStoreAreas[i].render();
+}
+
+
+// storeOne.setCookies();
