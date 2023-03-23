@@ -1,26 +1,37 @@
 body {
-  background-color: salmon;
-  font-size: 34px;
+    background-color: salmon;
+    font-size: 34px;
 }
 
 header {
-  font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Edu NSW ACT Foundation', cursive;
     background-color: aquamarine;
-    
+
 }
 
 
-h1 { 
+h1 {
     font-family: sans-serif;
     text-align: center;
 }
 
-#h1img { 
+.htitle {
+    color: rgb(238, 233, 237);
+    font-size: 40px;
+}
+
+.para_description {
+    color: aliceblue;
+    font-size: 30px;
+    padding-top: 2%;
+}
+
+#h1img {
     padding-left: 38%;
 }
 
 nav li {
-    display:inline;
+    display: inline;
     padding-top: 5%;
 }
 
@@ -28,7 +39,8 @@ thead {
     font-size: 40px;
 }
 
-td, th {
+td,
+th {
     border: 2px solid;
     text-align: left;
     padding: 8px;
