@@ -50,3 +50,10 @@ tr:nth-child(odd) {
     background-color: aqua;
 
 }
+
+
+footer {
+    padding-top: 10%;
+    font-size: 20px;
+    color: rgb(13, 77, 97); 
+}
