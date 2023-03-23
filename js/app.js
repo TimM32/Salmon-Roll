@@ -1,8 +1,8 @@
 'use strict';
 console.log('js connected');
 
-
-
+let form = document.getElementById('addCityForm');
+let storeArray = [];
 let cookieTable = document.getElementById('cookiesSold-table');
 
 let parentElement = document.getElementById('cityProfiles');
@@ -88,7 +88,7 @@ let storeFive = new StoreAreas('Lima', 2, 16, 4.6);
 
 
 
-let allStoreAreas = [storeOne, storeTwo, storeThree, storeFour, storeFive];
+// let allStoreAreas = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 
 
 for (let i = 0; i < storeArray.length; i++) {
@@ -108,10 +108,10 @@ StoreAreas.renderFooter = function () {
 
   for (let i = 0; i < hours.length; i++) {
     let hourlyTotal = 0;
-    console.log(allStoreAreas);
+    console.log(storeArray);
 
-    for (let j = 0; j < allStoreAreas.length; j++) {
-      hourlyTotal = hourlyTotal + allStoreAreas[j].averageCookies[i];
+    for (let j = 0; j < storeArray.length; j++) {
+      hourlyTotal = hourlyTotal + storeArray[j].averageCookies[i];
     }
     grandTotal += hourlyTotal;
     let hourlyTotalTd = document.createElement('td');
@@ -135,24 +135,25 @@ function handleNewCity(event) {
   let storeName = event.target.name.value;
   console.log('🚀 ~ file: app.js:135 ~ handleNewCity ~ storeName:', storeName);
   let minCustomerInput = document.getElementById('minCustomer');
-  let minCustomerValue = minCustomerInput['value'];
-  console.log('🚀 ~ file: app.js:138 ~ handleNewCity ~ minCustomerValue:', minCustomerValue);
+  let minCustomerValues = minCustomerInput.value;
+  console.log('🚀 ~ file: app.js:138 ~ handleNewCity ~ minCustomerValue:', minCustomerValues);
   let maxCustomerInput = document.getElementById('maxCustomer');
-  let maxCustomerValue = maxCustomerInput['value'];
-  console.log('🚀 ~ file: app.js:141 ~ handleNewCity ~ maxCustomerValue:', maxCustomerValue);
+  let maxCustomerValues = maxCustomerInput.value;
+  console.log('🚀 ~ file: app.js:141 ~ handleNewCity ~ maxCustomerValue:', maxCustomerValues);
   let averageCookiesInput = document.getElementById('averageCookies');
-  let averageCookiesValue = averageCookiesInput['value'];
-  console.log('🚀 ~ file: app.js:144 ~ handleNewCity ~ averageCookiesValue:', averageCookiesValue);
+  let averageCookiesValues = averageCookiesInput.value;
+  console.log('🚀 ~ file: app.js:144 ~ handleNewCity ~ averageCookiesValue:', averageCookiesValues);
 
-  let newStore = new StoreAreas(storeName, minCustomerValue, maxCustomerValue, averageCookiesValue);
+  let newStore = new StoreAreas(storeName, minCustomerValues, maxCustomerValues, averageCookiesValues);
   console.log('🚀 ~ file: app.js:147 ~ handleNewCity ~ newStore:', newStore);
-
-
+  newStore.averageCookiesInput();
+  newStore.render();
+  form.reset();
 }
 
 
 
-
+form.addEventListener('submit', handleNewCity);
 
 
 
