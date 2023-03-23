@@ -23,7 +23,22 @@
         </nav>
     </header>
     <main id="Sales">
-        <h2 class="htitle">City Profiles!</h2>
+        <h2>Add City</h2>
+        <form id="addCityForm">
+            <fieldset>
+                <legend>Basic Information</legend>
+                <label>Store Name</label>
+                <input name="name" type="text">
+                <label>Minimum Number of Customers</label>
+                <input name="minCustomer" type="text">
+                <label>Maximum Number of Customers</label>
+                <input name="maxCustomer" type="text">
+                <label>Avg. Ammout of Cookies Per Customer</label>
+                <input name="averageCookies" type="text">
+            </fieldset>
+            <button type="submit">Submit</button>
+        </form>
+        <h3 class="htitle">City Profiles!</h3>
         <section id="cityProfiles">
             <table id="cookiesSold-table">
                 <thead>
