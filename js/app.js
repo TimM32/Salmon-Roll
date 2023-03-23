@@ -67,11 +67,7 @@ StoreAreas.prototype.render = function () {
 
     storeRow.appendChild(storeCell);
 
-
-
-
   }
-
 
   let totalDailyCookies = document.createElement('td');
   totalDailyCookies.textContent = this.totalDailyCookies;
@@ -99,4 +95,32 @@ for (let i = 0; i < allStoreAreas.length; i++) {
 }
 
 
-// storeOne.setCookies();
+StoreAreas.renderFooter = function(){
+  let tFoot = document.getElementById('tableFooter');
+  console.log('🚀 ~ file: app.js:69 ~ tFoot:', tFoot);
+  let footerRow = document.createElement('tr');
+  let totalId = document.createElement('th');
+  totalId.textContent = 'Total';
+  footerRow.appendChild(totalId);
+
+  let grandTotal =0;
+
+  for (let i = 0; i < hours.length; i++) {
+    let hourlyTotal = 0;
+    console.log(allStoreAreas);
+
+    for(let j = 0; j < allStoreAreas.length; j++){
+      hourlyTotal = hourlyTotal + allStoreAreas[j].averageCookies[i];
+    }
+    grandTotal += hourlyTotal;
+    let hourlyTotalTd = document.createElement('td');
+    hourlyTotalTd.textContent = hourlyTotal;
+    footerRow.appendChild(hourlyTotalTd);
+
+  }
+  let grandTotalTd = document.createElement('td');
+  grandTotalTd.textContent = grandTotal;
+  footerRow.appendChild(grandTotalTd);
+
+  tFoot.appendChild(footerRow);
+};
