@@ -59,7 +59,7 @@ StoreAreas.prototype.render = function () {
 
   for (let i = 0; i < hours.length; i++) {
     // adding up total cookies.
-    console.log('for totalling cookies', this.cookiesPerHour[i]);
+    // console.log('for totalling cookies', this.cookiesPerHour[i]);
     this.totalDailyCookies += this.cookiesPerHour[i];
 
     let storeCell = document.createElement('td');
@@ -134,19 +134,19 @@ function handleNewCity(event) {
 
   let storeName = event.target.name.value;
   console.log('🚀 ~ file: app.js:135 ~ handleNewCity ~ storeName:', storeName);
-  let minCustomerInput = document.getElementById('minCustomer');
-  let minCustomerValues = minCustomerInput.value;
+ 
+  let minCustomerValues = event.target.minCustomer.value;
   console.log('🚀 ~ file: app.js:138 ~ handleNewCity ~ minCustomerValue:', minCustomerValues);
-  let maxCustomerInput = document.getElementById('maxCustomer');
-  let maxCustomerValues = maxCustomerInput.value;
+
+  let maxCustomerValues = event.target.maxCustomer.value;
   console.log('🚀 ~ file: app.js:141 ~ handleNewCity ~ maxCustomerValue:', maxCustomerValues);
-  let averageCookiesInput = document.getElementById('averageCookies');
-  let averageCookiesValues = averageCookiesInput.value;
+  
+  let averageCookiesValues = event.target.averageCookies.value;
   console.log('🚀 ~ file: app.js:144 ~ handleNewCity ~ averageCookiesValue:', averageCookiesValues);
 
   let newStore = new StoreAreas(storeName, minCustomerValues, maxCustomerValues, averageCookiesValues);
   console.log('🚀 ~ file: app.js:147 ~ handleNewCity ~ newStore:', newStore);
-  newStore.averageCookiesInput();
+  newStore.setCookies();
   newStore.render();
   form.reset();
 }
