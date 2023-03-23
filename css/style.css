@@ -12,7 +12,12 @@ header {
 
 h1 { 
     font-family: sans-serif;
+    text-align: center;
+}
 
+nav li {
+    display:inline;
+    padding-top: 5%;
 }
 
 thead {
