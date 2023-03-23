@@ -134,13 +134,13 @@ function handleNewCity(event) {
 
   let storeName = event.target.name.value;
   console.log('🚀 ~ file: app.js:135 ~ handleNewCity ~ storeName:', storeName);
- 
+
   let minCustomerValues = event.target.minCustomer.value;
   console.log('🚀 ~ file: app.js:138 ~ handleNewCity ~ minCustomerValue:', minCustomerValues);
 
   let maxCustomerValues = event.target.maxCustomer.value;
   console.log('🚀 ~ file: app.js:141 ~ handleNewCity ~ maxCustomerValue:', maxCustomerValues);
-  
+
   let averageCookiesValues = event.target.averageCookies.value;
   console.log('🚀 ~ file: app.js:144 ~ handleNewCity ~ averageCookiesValue:', averageCookiesValues);
 
