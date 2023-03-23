@@ -124,3 +124,38 @@ StoreAreas.renderFooter = function(){
 
   tFoot.appendChild(footerRow);
 };
+
+
+function handleNewCity(event){
+  event.preventDefault();
+  console.log('We did iiiittttt!!!');
+  event.stopPropagation();
+
+  let storeName = event.target.name.value;
+  let minCustomerInput = document.getElementById('minCustomer');
+  let minCustomerValue = minCustomerInput['value'];
+  let maxCustomerInput = document.getElementById('maxCustomer');
+  let maxCustomerValue = maxCustomerInput['value'];
+  let averageCookiesInput = document.getElementById('averageCookies');
+  let averageCookiesValue = averageCookiesInput['value'];
+  
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
