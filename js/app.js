@@ -91,14 +91,11 @@ let storeFive = new StoreAreas('Lima', 2, 16, 4.6);
 // let allStoreAreas = [storeOne, storeTwo, storeThree, storeFour, storeFive];
 
 
-for (let i = 0; i < storeArray.length; i++) {
-  storeArray[i].render();
-}
 
 
-StoreAreas.renderFooter = function () {
-  let tFoot = document.getElementById('tableFooter');
-  console.log('🚀 ~ file: app.js:69 ~ tFoot:', tFoot);
+StoreAreas.prototype.renderFooter = function () {
+  let parentElement = document.getElementById('tableFooter');
+  
   let footerRow = document.createElement('tr');
   let totalId = document.createElement('th');
   totalId.textContent = 'Total';
@@ -123,8 +120,12 @@ StoreAreas.renderFooter = function () {
   grandTotalTd.textContent = grandTotal;
   footerRow.appendChild(grandTotalTd);
 
-  tFoot.appendChild(footerRow);
+  parentElement.appendChild(footerRow);
 };
+
+for (let i = 0; i < storeArray.length; i++) {
+  storeArray[i].render();
+}
 
 
 function handleNewCity(event) {
@@ -134,13 +135,13 @@ function handleNewCity(event) {
 
   let storeName = event.target.name.value;
   console.log('🚀 ~ file: app.js:135 ~ handleNewCity ~ storeName:', storeName);
- 
+
   let minCustomerValues = event.target.minCustomer.value;
   console.log('🚀 ~ file: app.js:138 ~ handleNewCity ~ minCustomerValue:', minCustomerValues);
 
   let maxCustomerValues = event.target.maxCustomer.value;
   console.log('🚀 ~ file: app.js:141 ~ handleNewCity ~ maxCustomerValue:', maxCustomerValues);
-  
+
   let averageCookiesValues = event.target.averageCookies.value;
   console.log('🚀 ~ file: app.js:144 ~ handleNewCity ~ averageCookiesValue:', averageCookiesValues);
 
@@ -152,6 +153,7 @@ function handleNewCity(event) {
 }
 
 
+StoreAreas.prototype.renderFooter();
 
 form.addEventListener('submit', handleNewCity);
 
